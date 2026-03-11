@@ -8,7 +8,7 @@ namespace poligon2026B
 {
     internal class tacka
     {
-        double x, y;
+        public double x, y;
         public tacka(double x, double y)
         {
             this.x = x;
