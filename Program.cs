@@ -10,6 +10,7 @@ namespace poligon2026B
     {
         static void Main(string[] args)
         {
+            // jaroslav spirin
         }
     }
 }
