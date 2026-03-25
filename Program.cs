@@ -19,8 +19,10 @@ namespace poligon2026B
             /*poligon p = poligon.unos();
             p.stampaj();
             p.snimi();*/
-            poligon p = poligon.ucitaj();
-            p.stampaj();
+            /*poligon p = poligon.ucitaj();
+            p.stampaj();*/
+            poligon p = poligon.unos();
+            Console.WriteLine(p.obim());
             Console.ReadKey();
         }
     }
