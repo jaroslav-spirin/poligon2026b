@@ -23,7 +23,6 @@ namespace poligon2026B
             p.stampaj();*/
             poligon p = poligon.unos();
             Console.WriteLine(p.obim());
-            Console.ReadKey();
         }
     }
 }
