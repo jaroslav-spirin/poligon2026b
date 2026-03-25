@@ -20,7 +20,7 @@ namespace poligon2026B
             this.poc = new tacka();
             this.kraj = kraj;
         }
-        public vektor centriraj()
+        public tacka centriraj()
         {
             return new tacka(kraj.x-poc.x,kraj.y-poc.y);
         }

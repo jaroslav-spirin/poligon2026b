@@ -10,12 +10,16 @@ namespace poligon2026B
     {
         static void Main(string[] args)
         {
+            /*
             tacka a = new tacka(2, 3);
             tacka b = new tacka(4, 5);
             tacka c = new tacka(6, 7);
             tacka d = new tacka(8, 9);
             vektor ab = new vektor(a, b);
             ab.stampaj();
+            */
+            poligon p = poligon.unos();
+            p.stampaj();
             Console.ReadKey();
         }
     }
