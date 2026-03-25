@@ -34,5 +34,15 @@ namespace poligon2026B
             tacka b1 = b.centriraj();
             return a1.x * b1.x + a1.y * b1.y;
         }
+        public static double vektorski(vektor a, vektor b)
+        {
+            tacka a1 = a.centriraj();
+            tacka b1 = b.centriraj();
+            return a1.x * b1.y - a1.y * b1.x;
+        }
+        public double duzina()
+        {
+            return centriraj().d();
+        }
     }
 }
