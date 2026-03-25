@@ -14,6 +14,10 @@ namespace poligon2026B
             this.x = x;
             this.y = y;
         }
+        public tacka()
+        {
+            x = 0; y = 0;
+        }
         public double d()
         {
             return Math.Sqrt(x * x + y * y);
