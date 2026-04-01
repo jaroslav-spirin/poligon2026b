@@ -44,5 +44,10 @@ namespace poligon2026B
         {
             return centriraj().d();
         }
+        public static bool sekuse(vektor a, vektor b)
+        {
+            if (ravan.saistestrane(a, b.poc, b.kraj) * ravan.saistestrane(b, a.poc, a.kraj) != 0) return true;
+            else return false;
+        }
     }
 }

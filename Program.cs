@@ -21,8 +21,9 @@ namespace poligon2026B
             p.snimi();*/
             /*poligon p = poligon.ucitaj();
             p.stampaj();*/
-            poligon p = poligon.unos();
-            Console.WriteLine(p.obim());
+            //poligon p = poligon.unos();
+            //Console.WriteLine(p.obim());
+            Console.WriteLine(vektor.sekuse(new vektor(new tacka(0, 0), new tacka(0, 3)),new vektor(new tacka(1,0),new tacka(1,3))));
         }
     }
 }

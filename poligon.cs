@@ -66,7 +66,7 @@ namespace poligon2026B
         }
         public double obim()
         {
-            double rez = new vektor(teme[0],teme[br_temena-1]).duzina();
+            double rez = new vektor(teme[0], teme[br_temena - 1]).duzina();
             for(int i = 1; i < br_temena; i++)
             {
                 rez += new vektor(teme[i], teme[i - 1]).duzina();
