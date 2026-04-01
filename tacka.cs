@@ -22,5 +22,15 @@ namespace poligon2026B
         {
             return Math.Sqrt(x * x + y * y);
         }
+        public static bool operator ==(tacka a, tacka b)
+        {
+            if (a.x == b.x && a.y == b.y) return true;
+            else return false;
+        }
+        public static bool operator !=(tacka a, tacka b)
+        {
+            if (a.x == b.x && a.y == b.y) return false;
+            else return true;
+        }
     }
 }
