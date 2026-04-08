@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,15 @@ namespace poligon2026B
                 novi.teme[i].y = Convert.ToDouble(Console.ReadLine());
             }
             return novi;
+        }
+        public vektor[] stranice()
+        {
+            vektor[] niz = new vektor[br_temena];
+            for(int i = 0;i < br_temena; i++)
+            {
+                niz[i] = new vektor(teme[i], teme[(i+1) % br_temena]);
+            }
+            return niz;
         }
         public void stampaj()
         {
@@ -66,10 +76,10 @@ namespace poligon2026B
         }
         public double obim()
         {
-            double rez = new vektor(teme[0], teme[br_temena - 1]).duzina();
-            for(int i = 1; i < br_temena; i++)
+            double rez = 0;
+            foreach(vektor stranica in stranice())
             {
-                rez += new vektor(teme[i], teme[i - 1]).duzina();
+                rez += stranica.duzina();
             }
             return rez;
         }
@@ -85,14 +95,26 @@ namespace poligon2026B
                     }
                 }
             }
+            vektor[] stranice = this.stranice();
             for(int i = 0; i < br_temena - 2; i++)
             {
-                for(int j = i + 2; j < br_temena-Convert.ToInt32(i==1); j++)
+                for(int j = i + 2; j < br_temena-Convert.ToInt32(i==0); j++)
                 {
-                    
+                    if (vektor.sekuse(stranice[i], stranice[j])) return false;
                 }
             }
             return true;
+        }
+        public bool konveksan()
+        {
+            vektor[] stranice = this.stranice();
+            int n = 0;
+            for (int i = 0; i < br_temena; i++)
+            {
+                if (vektor.vektorski(stranice[i], stranice[(i + 1)%5]) > 0) n++;
+            }
+            if (n == 0 || n == br_temena) return true;
+            else return false;
         }
     }
 }
