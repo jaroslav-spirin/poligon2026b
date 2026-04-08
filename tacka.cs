@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,6 +32,15 @@ namespace poligon2026B
         {
             if (a.x == b.x && a.y == b.y) return false;
             else return true;
+        }
+        public override bool Equals(object o)
+        {
+            if (this == (tacka)o) return true;
+            else return false;
+        }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
         }
     }
 }

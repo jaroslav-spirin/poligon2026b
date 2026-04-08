@@ -111,7 +111,7 @@ namespace poligon2026B
             int n = 0;
             for (int i = 0; i < br_temena; i++)
             {
-                if (vektor.vektorski(stranice[i], stranice[(i + 1)%5]) > 0) n++;
+                if (vektor.vektorski(stranice[i], stranice[(i + 1)%br_temena]) > 0) n++;
             }
             if (n == 0 || n == br_temena) return true;
             else return false;

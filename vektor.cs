@@ -28,16 +28,24 @@ namespace poligon2026B
         {
             Console.WriteLine("pocetak:({0},{1}), kraj:({2},{3})", poc.x, poc.y, kraj.x, kraj.y);
         }
+        public static vektor operator +(vektor a, vektor b)
+        {
+            tacka a1 = a.centriraj(), b1 = b.centriraj();
+            return new vektor(new tacka(a1.x + b1.x, a1.y + b1.y));
+        }
+        public static vektor operator -(vektor a, vektor b)
+        {
+            tacka a1 = a.centriraj(), b1 = b.centriraj();
+            return new vektor(new tacka(a1.x - b1.x, a1.y - b1.y));
+        }
         public static double skalarni(vektor a, vektor b)
         {
-            tacka a1 = a.centriraj();
-            tacka b1 = b.centriraj();
+            tacka a1 = a.centriraj(), b1 = b.centriraj();
             return a1.x * b1.x + a1.y * b1.y;
         }
         public static double vektorski(vektor a, vektor b)
         {
-            tacka a1 = a.centriraj();
-            tacka b1 = b.centriraj();
+            tacka a1 = a.centriraj(), b1 = b.centriraj();
             return a1.x * b1.y - a1.y * b1.x;
         }
         public double duzina()
