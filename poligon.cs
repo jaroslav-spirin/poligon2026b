@@ -122,7 +122,7 @@ namespace poligon2026B
             for(int i = 0; i < br_temena; i++)
             {
                 desno += teme[i].x * teme[(i + 1) % br_temena].y;
-                levo += teme[i].x * teme[(i - 1 + br_temena) % br_temena].y;
+                levo += teme[(i + 1) % br_temena].x * teme[i].y;
             }
             return Math.Abs(desno - levo) / 2;
         }
