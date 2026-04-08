@@ -46,11 +46,7 @@ namespace poligon2026B
         }
         public static bool sekuse(vektor a, vektor b)
         {
-            if (ravan.saistestrane(a, b.poc, b.kraj) * ravan.saistestrane(b, a.poc, a.kraj) != 0)
-            {
-                Console.WriteLine("{0},{1};{2},{3};;{4},{5};{6},{7}", a.poc.x, a.poc.y, a.kraj.x, a.kraj.y, b.poc.x, b.poc.y, b.kraj.x, b.kraj.y);
-                return true;
-            }
+            if (ravan.saistestrane(a, b.poc, b.kraj) * ravan.saistestrane(b, a.poc, a.kraj) != 0) return true;
             else return false;
         }
     }
