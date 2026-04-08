@@ -116,5 +116,15 @@ namespace poligon2026B
             if (n == 0 || n == br_temena) return true;
             else return false;
         }
+        public double povrsina()
+        {
+            double desno = 0, levo = 0;
+            for(int i = 0; i < br_temena; i++)
+            {
+                desno += teme[i].x * teme[(i + 1) % br_temena].y;
+                levo += teme[i].x * teme[(i - 1 + br_temena) % br_temena].y;
+            }
+            return Math.Abs(desno - levo) / 2;
+        }
     }
 }
