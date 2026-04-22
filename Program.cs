@@ -22,8 +22,9 @@ namespace poligon2026B
             /*poligon p = poligon.ucitaj();
             p.stampaj();*/
             poligon p = poligon.unos();
-            Console.WriteLine(p.povrsina());
-            //Console.WriteLine(vektor.sekuse(new vektor(new tacka(2,6), new tacka(2,4)),new vektor(new tacka(1,1),new tacka(5,1))));
+            Console.WriteLine("kvadrat: " + p.kvadrat());
+            Console.WriteLine("deltoid: " + p.deltoid());
+            Console.WriteLine("pravougaonik: " + p.pravougaonik());
         }
     }
 }

@@ -22,12 +22,12 @@ namespace poligon2026B
             Console.Write("Unesite broj temena: ");
             int br = Convert.ToInt32(Console.ReadLine());
             poligon novi = new poligon(br);
-            for(int i = 0; i < br; i++)
+            for (int i = 0; i < br; i++)
             {
                 novi.teme[i] = new tacka();
-                Console.Write("teme #{0}.x = ", i+1);
+                Console.Write("teme #{0}.x = ", i + 1);
                 novi.teme[i].x = Convert.ToDouble(Console.ReadLine());
-                Console.Write("teme #{0}.y = ", i+1);
+                Console.Write("teme #{0}.y = ", i + 1);
                 novi.teme[i].y = Convert.ToDouble(Console.ReadLine());
             }
             return novi;
@@ -35,9 +35,9 @@ namespace poligon2026B
         public vektor[] stranice()
         {
             vektor[] niz = new vektor[br_temena];
-            for(int i = 0;i < br_temena; i++)
+            for (int i = 0; i < br_temena; i++)
             {
-                niz[i] = new vektor(teme[i], teme[(i+1) % br_temena]);
+                niz[i] = new vektor(teme[i], teme[(i + 1) % br_temena]);
             }
             return niz;
         }
@@ -77,7 +77,7 @@ namespace poligon2026B
         public double obim()
         {
             double rez = 0;
-            foreach(vektor stranica in stranice())
+            foreach (vektor stranica in stranice())
             {
                 rez += stranica.duzina();
             }
@@ -85,9 +85,9 @@ namespace poligon2026B
         }
         public bool prost()
         {
-            for(int i = 0; i < br_temena - 1; i++)
+            for (int i = 0; i < br_temena - 1; i++)
             {
-                for(int j = i + 1; j < br_temena; j++)
+                for (int j = i + 1; j < br_temena; j++)
                 {
                     if (teme[i] == teme[j])
                     {
@@ -96,9 +96,9 @@ namespace poligon2026B
                 }
             }
             vektor[] stranice = this.stranice();
-            for(int i = 0; i < br_temena - 2; i++)
+            for (int i = 0; i < br_temena - 2; i++)
             {
-                for(int j = i + 2; j < br_temena-Convert.ToInt32(i==0); j++)
+                for (int j = i + 2; j < br_temena - Convert.ToInt32(i == 0); j++)
                 {
                     if (vektor.sekuse(stranice[i], stranice[j])) return false;
                 }
@@ -111,20 +111,52 @@ namespace poligon2026B
             int n = 0;
             for (int i = 0; i < br_temena; i++)
             {
-                if (vektor.vektorski(stranice[i], stranice[(i + 1)%br_temena]) > 0) n++;
+                if (vektor.vektorski(stranice[i], stranice[(i + 1) % br_temena]) > 0) n++;
             }
             if (n == 0 || n == br_temena) return true;
             else return false;
         }
         public double povrsina()
         {
-            double desno = 0, levo = 0;
-            for(int i = 0; i < br_temena; i++)
+            if (prost())
             {
-                desno += teme[i].x * teme[(i + 1) % br_temena].y;
-                levo += teme[(i + 1) % br_temena].x * teme[i].y;
+                double desno = 0, levo = 0;
+                for (int i = 0; i < br_temena; i++)
+                {
+                    desno += teme[i].x * teme[(i + 1) % br_temena].y;
+                    levo += teme[(i + 1) % br_temena].x * teme[i].y;
+                }
+                return Math.Abs(desno - levo) / 2;
             }
-            return Math.Abs(desno - levo) / 2;
+            else return 0;
+        }
+        public bool deltoid()
+        {
+            if (br_temena != 4) return false;
+            if (vektor.skalarni(new vektor(teme[0], teme[2]), new vektor(teme[1], teme[3])) == 0) return true;
+            else return false;
+        }
+        public bool kvadrat()
+        {
+            if (br_temena != 4) return false;
+            vektor[] stranice = this.stranice();
+            if (stranice[0].duzina() == stranice[1].duzina() && stranice[1].duzina() == stranice[2].duzina() && stranice[2].duzina() == stranice[3].duzina())
+            {
+                if (vektor.skalarni(new vektor(teme[0], teme[1]), new vektor(teme[1], teme[2])) == 0) return true;
+                else return false;
+            }
+            else return false;
+        }
+        public bool pravougaonik()
+        {
+            if (br_temena != 4) return false;
+            vektor[] stranice = this.stranice();
+            if (stranice[0].duzina() == stranice[2].duzina() && stranice[1].duzina() == stranice[3].duzina())
+            {
+                if (vektor.skalarni(new vektor(teme[0], teme[1]), new vektor(teme[1], teme[2])) == 0) return true;
+                else return false;
+            }
+            else return false;
         }
     }
 }
